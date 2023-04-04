@@ -1,0 +1,111 @@
+\hypertarget{class_quadric}{}\doxysection{Quadric Class Reference}
+\label{class_quadric}\index{Quadric@{Quadric}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_quadric_a417dd9549be7f361e175c86904105dcd}{Quadric}} (arma\+::vec normale, arma\+::vec point)
+\begin{DoxyCompactList}\small\item\em Constructeur. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_quadric_a6623b2195d3b944e2cf7b4ef453e66d3}{Quadric}} (arma\+::mat m)
+\begin{DoxyCompactList}\small\item\em Constructeur par defaut. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_quadric_a948f98218b7922df73a3dcb4a914e388}\label{class_quadric_a948f98218b7922df73a3dcb4a914e388}} 
+arma\+::mat {\bfseries get\+Mat} ()
+\item 
+void \mbox{\hyperlink{class_quadric_ac4ce7a1e0812a5f129dca54e259baa07}{add}} (\mbox{\hyperlink{class_quadric}{Quadric}} Q2)
+\begin{DoxyCompactList}\small\item\em addition de deux quadrics \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_quadric_ad854541c49151741399eda792e092ac2}{error}} (arma\+::vec v)
+\begin{DoxyCompactList}\small\item\em Distance d\textquotesingle{}un point au plan defini par le quadric. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+arma\+::mat \mbox{\hyperlink{class_quadric_a15487e79d8f3f98b6a68e2753bd7bf40}{Q}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_quadric_a417dd9549be7f361e175c86904105dcd}\label{class_quadric_a417dd9549be7f361e175c86904105dcd}} 
+\index{Quadric@{Quadric}!Quadric@{Quadric}}
+\index{Quadric@{Quadric}!Quadric@{Quadric}}
+\doxysubsubsection{\texorpdfstring{Quadric()}{Quadric()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Quadric\+::\+Quadric (\begin{DoxyParamCaption}\item[{arma\+::vec}]{normale,  }\item[{arma\+::vec}]{point }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructeur. 
+
+Constructeur de la classe Quadrics
+
+
+\begin{DoxyParams}{Parameters}
+{\em normale} & \+: normale a la face \\
+\hline
+{\em point} & \+: point de la face \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_quadric_a6623b2195d3b944e2cf7b4ef453e66d3}\label{class_quadric_a6623b2195d3b944e2cf7b4ef453e66d3}} 
+\index{Quadric@{Quadric}!Quadric@{Quadric}}
+\index{Quadric@{Quadric}!Quadric@{Quadric}}
+\doxysubsubsection{\texorpdfstring{Quadric()}{Quadric()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Quadric\+::\+Quadric (\begin{DoxyParamCaption}\item[{arma\+::mat}]{m }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructeur par defaut. 
+
+Constructeur de la classe CPlayer
+
+
+\begin{DoxyParams}{Parameters}
+{\em list\+Songs} & \+: liste initiale des morceaux \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_quadric_ac4ce7a1e0812a5f129dca54e259baa07}\label{class_quadric_ac4ce7a1e0812a5f129dca54e259baa07}} 
+\index{Quadric@{Quadric}!add@{add}}
+\index{add@{add}!Quadric@{Quadric}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily void Quadric\+::add (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_quadric}{Quadric}}}]{Q2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+addition de deux quadrics 
+
+Methode qui permet l\textquotesingle{}addition de deux quadrics
+
+
+\begin{DoxyParams}{Parameters}
+{\em Q2} & \+: le quadric a ajouter au quadric courant \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_quadric_ad854541c49151741399eda792e092ac2}\label{class_quadric_ad854541c49151741399eda792e092ac2}} 
+\index{Quadric@{Quadric}!error@{error}}
+\index{error@{error}!Quadric@{Quadric}}
+\doxysubsubsection{\texorpdfstring{error()}{error()}}
+{\footnotesize\ttfamily double Quadric\+::error (\begin{DoxyParamCaption}\item[{arma\+::vec}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Distance d\textquotesingle{}un point au plan defini par le quadric. 
+
+Methode qui permet de calculer la distance du point donner en paramettre au plan utiliser pour definir le quadric
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & \+: Le point \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_quadric_a15487e79d8f3f98b6a68e2753bd7bf40}\label{class_quadric_a15487e79d8f3f98b6a68e2753bd7bf40}} 
+\index{Quadric@{Quadric}!Q@{Q}}
+\index{Q@{Q}!Quadric@{Quadric}}
+\doxysubsubsection{\texorpdfstring{Q}{Q}}
+{\footnotesize\ttfamily arma\+::mat Quadric\+::Q}
+
+matrice permettant de stosker le quadrics 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/diarra/\+Bureau/\+M2/\+Projet tuteré/my subject/\+TRAVAIL/m2ptut2022/\+Mon\+\_\+\+Travail/Quadric.\+h\end{DoxyCompactItemize}

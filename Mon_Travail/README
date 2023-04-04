@@ -1,0 +1,12 @@
+Pour compiler, il faut dans un premier temps instaler les librairis pmp https://www.pmp-library.org/ ,assimp et armadillo.
+
+Pour l'utilisation, il faut passer en parametre le nom du fichier à traité. 
+Le deuxieme parametre est le chemins du repertoire ou se situe le fichier .
+Le parametre suivant permet de specifier le pourcentage de decimation.
+Ce nombre est compris entre 1 et 99.
+Le quatrieme parametre permet de specifier le poid de la saillance.
+Par exemple:
+Si ce nombre est de 50 alors la saillance aura le meme poid que l'erreur quadratique. 
+S'il est de 20, l'ereur quadratique aura alors 80 de poid.  
+
+Le dernier parametre est le repertoire ou sera enregistré le fichier resultat.

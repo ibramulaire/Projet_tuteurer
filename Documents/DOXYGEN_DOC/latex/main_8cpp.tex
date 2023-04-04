@@ -1,0 +1,214 @@
+\hypertarget{main_8cpp}{}\doxysection{/home/diarra/\+Bureau/\+M2/\+Projet tuteré/my subject/\+TRAVAIL/m2ptut2022/\+Mon\+\_\+\+Travail/main.cpp File Reference}
+\label{main_8cpp}\index{/home/diarra/Bureau/M2/Projet tuteré/my subject/TRAVAIL/m2ptut2022/Mon\_Travail/main.cpp@{/home/diarra/Bureau/M2/Projet tuteré/my subject/TRAVAIL/m2ptut2022/Mon\_Travail/main.cpp}}
+
+
+Ce Programme permet de decimer un maillage en utilisant la saillance . Pour compiler, il faut dans un premier temps instaler les librairis pmp \href{https://www.pmp-library.org/}{\texttt{ https\+://www.\+pmp-\/library.\+org/}} ,assimp et armadillo.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$pmp/io/io.\+h$>$}\newline
+{\ttfamily \#include $<$pmp/\+Surface\+Mesh.\+h$>$}\newline
+{\ttfamily \#include $<$pmp/\+Types.\+h$>$}\newline
+{\ttfamily \#include $<$pmp/algorithms/\+Curvature.\+h$>$}\newline
+{\ttfamily \#include $<$pmp/\+Bounding\+Box.\+h$>$}\newline
+{\ttfamily \#include $<$pmp/utilities.\+h$>$}\newline
+{\ttfamily \#include $<$pmp/algorithms/\+Normals.\+h$>$}\newline
+{\ttfamily \#include $<$pmp/\+Mat\+Vec.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Quadric.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$pmp/algorithms/\+Quadric.\+h$>$}\newline
+Include dependency graph for main.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{main_8cpp_a29fa2fbb9206aeba740e774ab9802865}{compute\+\_\+diagonal\+Length}} (const pmp\+::\+Surface\+Mesh \&ppmmesh)
+\begin{DoxyCompactList}\small\item\em Cette fonction calcule la longeur de la diagonale du maillage trait. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a519867713fee43d819ec57101e73d259}{compute\+Saillancy}} (pmp\+::\+Surface\+Mesh \&ppmmesh)
+\begin{DoxyCompactList}\small\item\em Cette fonction calcule la saillance en chaque sommet du maillage traité avce la . \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a140d811913653af5ac380103a92f99d5}{compute\+Quadrix}} (pmp\+::\+Surface\+Mesh \&ppmmesh)
+\begin{DoxyCompactList}\small\item\em Cette fonction sert à la simplification. Elle permet de calculer les quadrics de depart. \end{DoxyCompactList}\item 
+arma\+::vec \mbox{\hyperlink{main_8cpp_abdb19edb2019ab742cd8a5495c0a0739}{Optimalposition}} (arma\+::mat qprime)
+\begin{DoxyCompactList}\small\item\em Cette fonction sert à la simplification. Elle calcule la position optimal en minimisant la fonction d\textquotesingle{}erreur . \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a42c1f38f629b8c21626971856566c126}{Compute\+PAir\+Infos}} (pmp\+::\+Surface\+Mesh \&ppmmesh, int poid)
+\begin{DoxyCompactList}\small\item\em Cette fonction sert à la simplification. Elle calcule la position optimal en minimisant la fonction d\textquotesingle{}erreur . \end{DoxyCompactList}\item 
+pmp\+::\+Edge \mbox{\hyperlink{main_8cpp_a10529c7aad216b68961f4385bb6a17a4}{best\+Cout}} (pmp\+::\+Surface\+Mesh \&ppmmesh, int poid)
+\begin{DoxyCompactList}\small\item\em Cette fonction sert à la simplification. Elle calcule l\textquotesingle{}arete avec le coût de decimation le plus faible en fonction de la saillance et de l\textquotesingle{}erreur quadratique . \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a9dd422030d0733a30679a4ff46b42655}{update\+Paire\+Info}} (pmp\+::\+Surface\+Mesh \&ppmmesh, pmp\+::\+Vertex \&toupdate, int poid)
+\begin{DoxyCompactList}\small\item\em Cette fonction sert à la simplification. Elle permet de calculer de mettre a jour les quadrics apres une contraction. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a388d5dc62eda9631ea8f565701fa8c52}{decimer}} (pmp\+::\+Surface\+Mesh \&ppmmesh, int poid)
+\begin{DoxyCompactList}\small\item\em Cette fonction sert à la simplification. Elle permet de contracter l\textquotesingle{}arrete avec le coût le moins elever . \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8cpp_abf9e6b7e6f15df4b525a2e7705ba3089}\label{main_8cpp_abf9e6b7e6f15df4b525a2e7705ba3089}} 
+int {\bfseries main} (int argc, char const $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Ce Programme permet de decimer un maillage en utilisant la saillance . Pour compiler, il faut dans un premier temps instaler les librairis pmp \href{https://www.pmp-library.org/}{\texttt{ https\+://www.\+pmp-\/library.\+org/}} ,assimp et armadillo. 
+
+Pour l\textquotesingle{}utilisation, il faut passer en parametre le fichier à traité, le nombre de contraction d\textquotesingle{}arrete à faire et un nombre entre 0 et 100. Ce dernier permet de specifier le poid de la saillance. Par exemple\+: Si ce nombre est de 50 alors la saillance aura le meme poid que l\textquotesingle{}erreur quadratique. S\textquotesingle{}il est de 20, l\textquotesingle{}ereur quadratique aura alors 80 de poid. ~\newline
+
+
+\begin{DoxyAuthor}{Author}
+\textbackslash{}\+Diarra Ibrahim 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8cpp_a10529c7aad216b68961f4385bb6a17a4}\label{main_8cpp_a10529c7aad216b68961f4385bb6a17a4}} 
+\index{main.cpp@{main.cpp}!bestCout@{bestCout}}
+\index{bestCout@{bestCout}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{bestCout()}{bestCout()}}
+{\footnotesize\ttfamily pmp\+::\+Edge best\+Cout (\begin{DoxyParamCaption}\item[{pmp\+::\+Surface\+Mesh \&}]{ppmmesh,  }\item[{int}]{poid }\end{DoxyParamCaption})}
+
+
+
+Cette fonction sert à la simplification. Elle calcule l\textquotesingle{}arete avec le coût de decimation le plus faible en fonction de la saillance et de l\textquotesingle{}erreur quadratique . 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ppmmesh} & Reference un object Surface\+Mesh de la biliotheque pmp(polynome mesh processing) qui est un maillage .\\
+\hline
+{\em poid} & Poid de la saillance par rapport à l\textquotesingle{}erreur quadratique moyenne . \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8cpp_a29fa2fbb9206aeba740e774ab9802865}\label{main_8cpp_a29fa2fbb9206aeba740e774ab9802865}} 
+\index{main.cpp@{main.cpp}!compute\_diagonalLength@{compute\_diagonalLength}}
+\index{compute\_diagonalLength@{compute\_diagonalLength}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{compute\_diagonalLength()}{compute\_diagonalLength()}}
+{\footnotesize\ttfamily double compute\+\_\+diagonal\+Length (\begin{DoxyParamCaption}\item[{const pmp\+::\+Surface\+Mesh \&}]{ppmmesh }\end{DoxyParamCaption})}
+
+
+
+Cette fonction calcule la longeur de la diagonale du maillage trait. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ppmmesh} & Reference un object Surface\+Mesh de la biliotheque pmp(polynome mesh processing) qui est un maillage . \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+retourne la valeur calculer dans un double. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8cpp_a42c1f38f629b8c21626971856566c126}\label{main_8cpp_a42c1f38f629b8c21626971856566c126}} 
+\index{main.cpp@{main.cpp}!ComputePAirInfos@{ComputePAirInfos}}
+\index{ComputePAirInfos@{ComputePAirInfos}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{ComputePAirInfos()}{ComputePAirInfos()}}
+{\footnotesize\ttfamily void Compute\+PAir\+Infos (\begin{DoxyParamCaption}\item[{pmp\+::\+Surface\+Mesh \&}]{ppmmesh,  }\item[{int}]{poid }\end{DoxyParamCaption})}
+
+
+
+Cette fonction sert à la simplification. Elle calcule la position optimal en minimisant la fonction d\textquotesingle{}erreur . 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ppmmesh} & Reference un object Surface\+Mesh de la biliotheque pmp(polynome mesh processing) qui est un maillage .\\
+\hline
+{\em poid} & Poid de la saillance par rapport à l\textquotesingle{}erreur quadratique moyenne . \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8cpp_a140d811913653af5ac380103a92f99d5}\label{main_8cpp_a140d811913653af5ac380103a92f99d5}} 
+\index{main.cpp@{main.cpp}!computeQuadrix@{computeQuadrix}}
+\index{computeQuadrix@{computeQuadrix}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{computeQuadrix()}{computeQuadrix()}}
+{\footnotesize\ttfamily void compute\+Quadrix (\begin{DoxyParamCaption}\item[{pmp\+::\+Surface\+Mesh \&}]{ppmmesh }\end{DoxyParamCaption})}
+
+
+
+Cette fonction sert à la simplification. Elle permet de calculer les quadrics de depart. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ppmmesh} & Reference un object Surface\+Mesh de la biliotheque pmp(polynome mesh processing) qui est un maillage . \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8cpp_a519867713fee43d819ec57101e73d259}\label{main_8cpp_a519867713fee43d819ec57101e73d259}} 
+\index{main.cpp@{main.cpp}!computeSaillancy@{computeSaillancy}}
+\index{computeSaillancy@{computeSaillancy}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{computeSaillancy()}{computeSaillancy()}}
+{\footnotesize\ttfamily void compute\+Saillancy (\begin{DoxyParamCaption}\item[{pmp\+::\+Surface\+Mesh \&}]{ppmmesh }\end{DoxyParamCaption})}
+
+
+
+Cette fonction calcule la saillance en chaque sommet du maillage traité avce la . 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ppmmesh} & Reference un object Surface\+Mesh de la biliotheque pmp(polynome mesh processing) qui est un maillage . \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8cpp_a388d5dc62eda9631ea8f565701fa8c52}\label{main_8cpp_a388d5dc62eda9631ea8f565701fa8c52}} 
+\index{main.cpp@{main.cpp}!decimer@{decimer}}
+\index{decimer@{decimer}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{decimer()}{decimer()}}
+{\footnotesize\ttfamily void decimer (\begin{DoxyParamCaption}\item[{pmp\+::\+Surface\+Mesh \&}]{ppmmesh,  }\item[{int}]{poid }\end{DoxyParamCaption})}
+
+
+
+Cette fonction sert à la simplification. Elle permet de contracter l\textquotesingle{}arrete avec le coût le moins elever . 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ppmmesh} & Reference un object Surface\+Mesh de la biliotheque pmp(polynome mesh processing) qui est un maillage . \\
+\hline
+{\em poid} & Poid de la saillance par rapport à l\textquotesingle{}erreur quadratique moyenne . \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8cpp_abdb19edb2019ab742cd8a5495c0a0739}\label{main_8cpp_abdb19edb2019ab742cd8a5495c0a0739}} 
+\index{main.cpp@{main.cpp}!Optimalposition@{Optimalposition}}
+\index{Optimalposition@{Optimalposition}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{Optimalposition()}{Optimalposition()}}
+{\footnotesize\ttfamily arma\+::vec Optimalposition (\begin{DoxyParamCaption}\item[{arma\+::mat}]{qprime }\end{DoxyParamCaption})}
+
+
+
+Cette fonction sert à la simplification. Elle calcule la position optimal en minimisant la fonction d\textquotesingle{}erreur . 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ppmmesh} & Reference un object Surface\+Mesh de la biliotheque pmp(polynome mesh processing) qui est un maillage . \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return un le point optimal 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8cpp_a9dd422030d0733a30679a4ff46b42655}\label{main_8cpp_a9dd422030d0733a30679a4ff46b42655}} 
+\index{main.cpp@{main.cpp}!updatePaireInfo@{updatePaireInfo}}
+\index{updatePaireInfo@{updatePaireInfo}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{updatePaireInfo()}{updatePaireInfo()}}
+{\footnotesize\ttfamily void update\+Paire\+Info (\begin{DoxyParamCaption}\item[{pmp\+::\+Surface\+Mesh \&}]{ppmmesh,  }\item[{pmp\+::\+Vertex \&}]{toupdate,  }\item[{int}]{poid }\end{DoxyParamCaption})}
+
+
+
+Cette fonction sert à la simplification. Elle permet de calculer de mettre a jour les quadrics apres une contraction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ppmmesh} & Reference un object Surface\+Mesh de la biliotheque pmp(polynome mesh processing) qui est un maillage . \\
+\hline
+{\em poid} & Poid de la saillance par rapport à l\textquotesingle{}erreur quadratique moyenne . \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
